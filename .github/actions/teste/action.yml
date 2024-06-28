@@ -8,10 +8,18 @@ runs:
 
     - id: run-test
       run: |
-        # Adicione seu script de teste aqui
         node ${{ inputs.file-path }} > ${{ inputs.results-file }}
       shell: bash
 
     - id: output-results
       run: cat ${{ inputs.results-file }}
       shell: bash
+inputs:
+  file-path:
+    description: "Path to test script"
+    required: true
+    default: "test-file.js"
+outputs:
+  results-file:
+    description: "Path to results file"
+    value: ${{ steps.run-test.outputs.results-file }}
