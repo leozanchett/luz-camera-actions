@@ -1,0 +1,27 @@
+name: Build and Deploy Flutter Web App
+
+on:
+  push:
+    branches:
+      - main  # Defina o branch que deve disparar a ação
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout private repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.actor }}/otimizai_agronota_app 
+          token: ${{ secrets.GIT_HUB_TOKEN }}  
+          path: otimizai_agronota_app
+    
+      - name: GitHub Worspace
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+
+      - name: Info Repository
+        run: "echo ${{ github.workspace }}"
+        run: "echo ${{ github.repository }}"
