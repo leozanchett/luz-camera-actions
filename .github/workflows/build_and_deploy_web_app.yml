@@ -23,5 +23,4 @@ jobs:
           repository: ${{ github.repository }}
 
       - name: Info Repository
-        run: "echo ${{ github.workspace }}"
-        run: "echo ${{ github.repository }}"
+        run: "echo ${{ github.workspace }} && ls ${{ github.workspace }}"
