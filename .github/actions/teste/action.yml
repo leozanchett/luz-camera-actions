@@ -1,8 +1,10 @@
 name: "Example"
 description: "Receives file and generates output"
-runs:
-  using: "node12" # node12 is the runtime version
-  main: "index.js" # index.js is the entrypoint
+runs: # how the action will run
+  using: "composite"
+  steps:
+    - run: echo "Hello, World!"
+      shell: bash
 inputs:
   file-path: # id of input
     description: "Path to test script"
@@ -11,3 +13,4 @@ inputs:
 outputs:
   results-file: # id of output
     description: "Path to results file"
+    value: "results.txt"
