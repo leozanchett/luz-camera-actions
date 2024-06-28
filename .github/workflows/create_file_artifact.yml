@@ -1,6 +1,6 @@
 name: GitHub Create File Artifact
 run-name: ${{ github.actor }} is creating a file 🚀
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   save-output:
