@@ -3,7 +3,7 @@ run-name: ${{ github.actor }} is creating a file 🚀
 on: [push]
 
 jobs:
-  example-job:
+  save-output:
     name: Save output
     runs-on: ubuntu-latest
     steps:
@@ -15,7 +15,14 @@ jobs:
         with:
           name: output-log-file
           path: output.log
+  download-output:
+    name: Download output
+    runs-on: ubuntu-latest
+    needs: save-output
+    steps:
       - name: Download a single artifact
         uses: actions/download-artifact@v4
         with:
-            name: output-log-file
+          name: output-log-file
+      - name: Print the output
+        run: cat output-log-file/output.log
