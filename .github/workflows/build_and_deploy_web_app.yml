@@ -13,9 +13,13 @@ jobs:
       - name: Checkout private repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.actor }}/otimizai_agronota_app 
+          repository: ${{ github.actor }}/agronota-app 
           token: ${{ secrets.GIT_HUB_TOKEN }}  
           path: otimizai_agronota_app
+          
+      - name: Check Repository
+        run: "echo ${{ github.actor }} && ls ${{ github.workspace }}"
+             
     
       - name: GitHub Worspace
         uses: actions/checkout@v4
