@@ -18,20 +18,25 @@ jobs:
           path: otimizai_agronota_app
           ref: main  # Adicione o branch principal ou específico
 
-      - name: Check Private Repository
-        run: |
-          echo "User: ${{ github.actor }}"
-          echo "Workspace:"
-          ls ${{ github.workspace }}
-
-      - name: Checkout otimizai_agronota_app
-        uses: actions/checkout@v4
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          repository: ${{ github.repository }}
-          path: otimizai_agronota_app/
-          
-      - name: Check Repository
-        run: |
-          echo "User: ${{ github.actor }}"
-          echo "Workspace:"
-          ls ${{ github.workspace }}
+          flutter-version: '3.22.2'
+        
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build web app
+        run: flutter build web
+        
+      - name: Deploy web app
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GIT_HUB_TOKEN }}
+          publish_dir: otimizai_agronota_app/build/web
+          publish_branch: gh-pages
+          cname: agronota.com.br
+          commit_message: 'Deploy Flutter Web App 🚀'
+
+
+
