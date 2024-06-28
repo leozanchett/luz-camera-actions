@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    environment: VARIABLES
     steps:
       - name: Checkout private repository
         uses: actions/checkout@v4
