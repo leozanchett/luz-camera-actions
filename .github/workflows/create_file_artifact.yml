@@ -25,4 +25,4 @@ jobs:
         with:
           name: output-log-file
       - name: Print the output
-        run: output.log
+        run: cat output.log
