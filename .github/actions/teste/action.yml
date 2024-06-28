@@ -1,0 +1,13 @@
+name: "Example"
+description: "Receives file and generates output"
+runs:
+  using: "node12" # node12 is the runtime version
+  main: "index.js" # index.js is the entrypoint
+inputs:
+  file-path: # id of input
+    description: "Path to test script"
+    required: true
+    default: "test-file.js"
+outputs:
+  results-file: # id of output
+    description: "Path to results file"
