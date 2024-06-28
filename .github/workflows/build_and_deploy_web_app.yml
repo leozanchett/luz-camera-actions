@@ -13,18 +13,24 @@ jobs:
       - name: Checkout private repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.actor }}/agronota-app 
-          token: ${{ secrets.GIT_HUB_TOKEN }}  
+          repository: ${{ github.actor }}/agronota-app  # Certifique-se de que o nome do repositório está correto
+          token: ${{ secrets.GIT_HUB_TOKEN }}
           path: otimizai_agronota_app
-          
+          ref: main  # Adicione o branch principal ou específico
+
       - name: Check Repository
-        run: "echo ${{ github.actor }} && ls ${{ github.workspace }}"
-             
-    
-      - name: GitHub Worspace
+        run: |
+          echo "User: ${{ github.actor }}"
+          echo "Workspace:"
+          ls ${{ github.workspace }}
+
+      - name: Checkout public repository
         uses: actions/checkout@v4
         with:
           repository: ${{ github.repository }}
-
+          path: public_repo
+          
       - name: Info Repository
-        run: "echo ${{ github.workspace }} && ls ${{ github.workspace }}"
+        run: |
+          echo "Public Repository Workspace:"
+          ls ${{ github.workspace }}/public_repo
