@@ -1,16 +1,17 @@
 name: "Example"
 description: "Receives file and generates output"
-runs: # how the action will run
+runs:
   using: "composite"
   steps:
-    - run: echo "Hello, World!"
+    - run: echo "Hello, World!" > results.txt
       shell: bash
-inputs:
-  file-path: # id of input
-    description: "Path to test script"
-    required: true
-    default: "test-file.js"
-outputs:
-  results-file: # id of output
-    description: "Path to results file"
-    value: "results.txt"
+
+    - id: run-test
+      run: |
+        # Adicione seu script de teste aqui
+        node ${{ inputs.file-path }} > ${{ inputs.results-file }}
+      shell: bash
+
+    - id: output-results
+      run: cat ${{ inputs.results-file }}
+      shell: bash
