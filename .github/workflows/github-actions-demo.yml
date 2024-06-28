@@ -3,6 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   Explore-GitHub-Actions:
+    needs: [Teste-Python]
     runs-on: ubuntu-latest
     steps:
       - run: echo "Eu sou o ${{ github.actor }} e estou testando o GitHub Actions 🚀"
