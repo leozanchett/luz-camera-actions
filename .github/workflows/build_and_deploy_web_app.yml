@@ -34,6 +34,9 @@ jobs:
         with:
             flutter-version: '3.22.2'
 
+      - name: Flutter doctor
+        run: flutter doctor            
+
       - name: Enable Flutter web
         working-directory: otimizai_agronota_app/otimizai_agronota_app
         run: flutter config --enable-web
