@@ -42,8 +42,8 @@ jobs:
           with open(index_file_path, 'r', encoding='utf-8') as file:
               content = file.read()
           content = re.sub(r'href=\"/*', 'href=\"./', content)
-          content = re.sub(r'<meta name="description" content="A new Flutter project.">', '<meta name="description" content="Solução para o agronegócio">', content)
-          content = re.sub(r'<meta name="apple-mobile-web-app-title" content="otimizai_agronota_app">', '<meta name="apple-mobile-web-app-title" content="Otimizai">', content)
+          content = re.sub(r'<meta name=\"description\" content=\"A new Flutter project.\">', '<meta name=\"description\" content=\"Solução para o agronegócio\">', content)
+          content = re.sub(r'<meta name=\"apple-mobile-web-app-title\" content=\"otimizai_agronota_app\">', '<meta name=\"apple-mobile-web-app-title\" content=\"Otimizai\">', content)
           content = re.sub(r'<title>otimizai_agronota_app</title>', '<title>Otimizai</title>', content)
           with open(index_file_path, 'w', encoding='utf-8') as file:
               file.write(content)"
