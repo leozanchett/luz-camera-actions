@@ -116689,7 +116689,7 @@ s.push(new A.up(null,10,null))
 return A.aTb(s,B.p8,B.N4)},
 $S:579}
 A.vl.prototype={
-P(a){return A.nB(!0,A.ZX(new A.c8(B.eC,A.dP(A.a([A.fF(A.aV1("stella.png",B.uy,250),null,null),B.bT,B.a_m],t.D),B.cX,B.av,B.aF),null),B.ba),B.b4,!0)}}
+P(a){return A.nB(!0,A.ZX(new A.c8(B.eC,A.dP(A.a([A.fF(A.aV1("assets/stella.png",B.uy,250),null,null),B.bT,B.a_m],t.D),B.cX,B.av,B.aF),null),B.ba),B.b4,!0)}}
 A.Dv.prototype={
 aw(){var s="Maicon Paulo Stella",r=$.aA()
 return new A.Dw(new A.bj(null,t.am),new A.eo(new A.c9(s,B.c0,B.aQ),r),new A.eo(new A.c9(s,B.c0,B.aQ),r),new A.eo(new A.c9("Venda de Producao da Propriedade",B.c0,B.aQ),r),new A.eo(B.dP,r),new A.eo(new A.c9("a prazo",B.c0,B.aQ),r),new A.eo(B.dP,r),new A.eo(new A.c9("1x",B.c0,B.aQ),r),A.a([],t.PF),A.a([],t.Sc),A.a([],t.D),B.K)}}
@@ -117102,7 +117102,7 @@ aw(){var s=$.aA()
 return new A.Kv(new A.eo(B.dP,s),new A.eo(B.dP,s),new A.bj(null,t.am),new A.Ug(),B.K)}}
 A.Kv.prototype={
 are(){this.am(new A.aGE(this))},
-P(a){var s,r,q,p=this,o=null,n=A.R(a).p2,m=A.R(a),l=A.a([A.Y(B.l.an(127.5),255,235,59),B.N],t.t_),k=A.aV1("otimizai.png",B.uy,250),j=A.bF("Entrar",o,o,o,n.w,o,o)
+P(a){var s,r,q,p=this,o=null,n=A.R(a).p2,m=A.R(a),l=A.a([A.Y(B.l.an(127.5),255,235,59),B.N],t.t_),k=A.aV1("assets/otimizai.png",B.uy,250),j=A.bF("Entrar",o,o,o,n.w,o,o)
 m=m.k4.a
 s=n.ax
 r=A.yX(!1,!1,p.d,A.E8(o,o,o,o,o,o,o,o,!0,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,o,s,"Digite seu email",o,A.kl(B.a_x,o,o,m),o,o,o,o,o,o,o,o,o,o,o),o,o,o,B.b6y,!1,o,o,o,new A.aGG())
@@ -122343,7 +122343,7 @@ B.V2=new A.aw(0,1/0,0,350)
 B.uw=new A.aw(0,640,0,1/0)
 B.ux=new A.aw(1/0,1/0,1/0,1/0)
 B.V3=new A.hr(1/0,1/0,1/0,1/0)
-B.Ug=new A.vq("stella.png",null,null)
+B.Ug=new A.vq("assets/stella.png",null,null)
 B.V7=new A.BA(2,"cover")
 B.dI=new A.x7(3,"noRepeat")
 B.e0=new A.rj(1,"low")
