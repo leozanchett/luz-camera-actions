@@ -25,27 +25,31 @@ jobs:
 
       - name: Work inside subdirectory
         run: cd otimizai_agronota_app/otimizai_agronota_app
-        
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-            flutter-version: '3.22.2'
-        
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Check current directory
+        run : |
+            pwd
+            ls -la
 
-      - name: Build web app
-        run: flutter build web
+      # - name: Set up Flutter
+      #   uses: subosito/flutter-action@v2
+      #   with:
+      #       flutter-version: '3.22.2'
         
-      - name: Deploy web app
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GIT_HUB_TOKEN }}
-          publish_dir: otimizai_agronota_app/build/web
-          publish_branch: gh-pages
-          cname: agronota.com.br
-          commit_message: 'Deploy Flutter Web App 🚀'
+      # - name: Install dependencies
+      #   run: flutter pub get
+
+      # - name: Build web app
+      #   run: flutter build web
+        
+      # - name: Deploy web app
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GIT_HUB_TOKEN }}
+      #     publish_dir: otimizai_agronota_app/build/web
+      #     publish_branch: gh-pages
+      #     cname: agronota.com.br
+      #     commit_message: 'Deploy Flutter Web App 🚀'
 
 
 
