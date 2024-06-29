@@ -23,6 +23,10 @@ jobs:
             echo "Contents of otimizai_agronota_app:"
             ls -la otimizai_agronota_app/otimizai_agronota_app
 
+      - name: Work inside subdirectory
+        run: cd otimizai_agronota_app/otimizai_agronota_app
+        
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
