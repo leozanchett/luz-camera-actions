@@ -39,28 +39,13 @@ jobs:
         # Importante: O comando flutter build web --release não é mais necessário
         # e para que o build funcione no GitHub Actions, é necessário ter a pasta web no diretório raiz do projeto
   
-  Python-Format-index:
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
       - name: Use Python 3.x
         uses: ./.github/actions/pyto
 
-  Deploy:
-    needs: [Python-Format-index]
-    runs-on: ubuntu-latest
-    environment: VARIABLES
-    steps:
-     - name: Checkout code
-       uses: actions/checkout@v4
-
-     - name: Deploy web app
-       uses: peaceiris/actions-gh-pages@v3
-       with:
-        github_token: ${{ secrets.LUZ_CAMERA_ACAO_TOKEN }}
-        publish_dir: otimizai_agronota_app/otimizai_agronota_app/build/web
-        publish_branch: gh-pages
-        commit_message: 'Deploy Flutter Web App 🚀'
-
+      - name: Deploy web app
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.LUZ_CAMERA_ACAO_TOKEN }}
+          publish_dir: otimizai_agronota_app/otimizai_agronota_app/build/web
+          publish_branch: gh-pages
+          commit_message: 'Deploy Flutter Web App 🚀'
