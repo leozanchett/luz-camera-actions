@@ -33,11 +33,14 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
             flutter-version: '3.22.2'
+
+      - name: Enable Flutter web
+        working-directory: otimizai_agronota_app/otimizai_agronota_app
+        run: flutter config --enable-web
         
       - name: Build web app
         working-directory: otimizai_agronota_app/otimizai_agronota_app
         run: |
-            flutter config --enable-web
             flutter clean
             flutter pub get
             flutter build web --release
