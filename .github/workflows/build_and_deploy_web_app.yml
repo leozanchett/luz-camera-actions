@@ -44,7 +44,7 @@ jobs:
         with:
           github_token: ${{ secrets.LUZ_CAMERA_ACAO_TOKEN }}
           publish_dir: otimizai_agronota_app/otimizai_agronota_app/build/web
-          publish_branch: main
+          publish_branch: gh-pages
           commit_message: 'Deploy Flutter Web App 🚀'
 
 
