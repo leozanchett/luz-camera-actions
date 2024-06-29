@@ -4,6 +4,10 @@ import re
 index_file_path = '/otimizai_agronota_app/otimizai_agronota_app/build/web/index.html'
 
 print(os.system('ls -la'))
+print("+" * 20)
+
+print(os.system('ls -la .github/'))
+
 
 print(os.system('pwd'))
 

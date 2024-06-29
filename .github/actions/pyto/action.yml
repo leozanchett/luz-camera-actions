@@ -3,6 +3,12 @@ description: 'Prints "Hello, World!" using Python'
 runs:
   using: 'composite' # This is a composite run steps action, which allows you to run multiple steps in a single action
   steps:
+    - name: Check current directory
+      shell: bash
+      run: |
+        pwd
+        ls -la
+
     - name: Manipulate index.html
       shell: bash
       run: python .github/actions/pyto/script.py

@@ -38,9 +38,13 @@ jobs:
             flutter build web --dart-define=FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}
         # Importante: O comando flutter build web --release não é mais necessário
         # e para que o build funcione no GitHub Actions, é necessário ter a pasta web no diretório raiz do projeto
-      - name: Checkout code
-        uses: actions/checkout@v4
-                
+
+      - name: Check current directory inside subdirectory
+        working-directory: otimizai_agronota_app/otimizai_agronota_app
+        run: |
+            pwd
+            ls -la
+
       - name: Use Python 3.x
         uses: ./.github/actions/pyto
 
