@@ -38,12 +38,15 @@ jobs:
         working-directory: otimizai_agronota_app/otimizai_agronota_app
         run: flutter config --enable-web
         
-      - name: Build web app
+      - name: Get Flutter dependencies
         working-directory: otimizai_agronota_app/otimizai_agronota_app
         run: |
             flutter clean
             flutter pub get
-            flutter build web --release
+        
+      - name: Build web app
+        working-directory: otimizai_agronota_app/otimizai_agronota_app
+        run: flutter build web --release
         
       - name: Deploy web app
         uses: peaceiris/actions-gh-pages@v3
