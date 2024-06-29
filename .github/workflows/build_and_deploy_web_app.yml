@@ -40,10 +40,10 @@ jobs:
         # Importante: O comando flutter build web --release não é mais necessário
         # e para que o build funcione no GitHub Actions, é necessário ter a pasta web no diretório raiz do projeto
         
-      - name: Deploy web app
+      - name: Deploy web apps
         uses: peaceiris/actions-gh-pages@v3
         with:
-          #github_token: ${{ secrets.LUZ_CAMERA_ACAO_TOKEN }}
+          github_token: ${{ secrets.LUZ_CAMERA_ACAO_TOKEN }}
           publish_dir: otimizai_agronota_app/otimizai_agronota_app/build/web
           publish_branch: gh-pages
           cname: agronota.com.br # Adicione o domínio personalizado
