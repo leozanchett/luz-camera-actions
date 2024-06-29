@@ -4,7 +4,6 @@ runs:
   using: 'composite' # This is a composite run steps action, which allows you to run multiple steps in a single action
   steps:
     - name: Manipulate index.html
-      working-directory: otimizai_agronota_app/otimizai_agronota_app
       shell: bash
       run: python .github/actions/pyto/script.py
     
