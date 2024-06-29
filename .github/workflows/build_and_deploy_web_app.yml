@@ -35,18 +35,20 @@ jobs:
             flutter-version: '3.22.2'
         
       - name: Install dependencies
+        working-directory: otimizai_agronota_app/otimizai_agronota_app
         run: flutter pub get
 
       - name: Build web app
+        working-directory: otimizai_agronota_app/otimizai_agronota_app
         run: flutter build web
         
       - name: Deploy web app
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GIT_HUB_TOKEN }}
-          publish_dir: otimizai_agronota_app/build/web
+          publish_dir: otimizai_agronota_app/otimizai_agronota_app/build/web
           publish_branch: gh-pages
-          cname: agronota.com.br
+          cname: agronota.com.br # Adicione o domínio personalizado
           commit_message: 'Deploy Flutter Web App 🚀'
 
 
