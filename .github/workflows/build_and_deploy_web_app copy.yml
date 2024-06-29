@@ -1,9 +1,6 @@
 name: Build and Deploy Flutter Web App
 
-on:
-  push:
-    branches:
-      - main  # Defina o branch que deve disparar a ação
+on: [workflow_dispatch]
 
 jobs:
   build:
@@ -16,8 +13,12 @@ jobs:
           repository: ${{ github.actor }}/agronota-app  # Certifique-se de que o nome do repositório está correto
           token: ${{ secrets.GIT_HUB_TOKEN }}
           path: otimizai_agronota_app
-          ref: main 
+          ref: main  # Adicione o branch principal ou específico
 
+      # - name: Verify private repository content
+      #   run: |
+      #       echo "Contents of otimizai_agronota_app:"
+      #       ls -la otimizai_agronota_app/otimizai_agronota_app
 
       - name: Check current directory inside subdirectory
         working-directory: otimizai_agronota_app/otimizai_agronota_app
@@ -28,15 +29,24 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-            channel: 'stable'
+            flutter-version: '3.22.2'
 
+      - name: Flutter doctor
+        run: flutter doctor            
 
-      - name: Flutter build
+      - name: Enable Flutter web
+        working-directory: otimizai_agronota_app/otimizai_agronota_app
+        run: flutter config --enable-web
+        
+      - name: Get Flutter dependencies
         working-directory: otimizai_agronota_app/otimizai_agronota_app
         run: |
+            flutter clean
             flutter pub get
-            flutter build web
-              
+        
+      - name: Build web app
+        working-directory: otimizai_agronota_app/otimizai_agronota_app
+        run: flutter build web --release
         
       - name: Deploy web app
         uses: peaceiris/actions-gh-pages@v3
