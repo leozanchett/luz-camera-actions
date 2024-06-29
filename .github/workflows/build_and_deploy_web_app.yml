@@ -18,12 +18,6 @@ jobs:
           path: otimizai_agronota_app
           ref: main 
 
-      - name: Check current directory inside subdirectory
-        working-directory: otimizai_agronota_app/otimizai_agronota_app
-        run: |
-            pwd
-            ls -la
-
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -39,25 +33,18 @@ jobs:
         # Importante: O comando flutter build web --release não é mais necessário
         # e para que o build funcione no GitHub Actions, é necessário ter a pasta web no diretório raiz do projeto
 
-      - name: Check current directory inside subdirectory
-        
-        run: |
-            pwd
-            ls -la
-
-      - name: Use Python 3.x
+      - name: Format index.html
         working-directory: otimizai_agronota_app/otimizai_agronota_app
         run: |
           python -c "import os
           import re
           index_file_path = 'build/web/index.html'
-          print(os.system('ls -la'))
-          print('+' * 20)
-          print(os.system('ls -la build/web'))
-          print(os.system('pwd'))
           with open(index_file_path, 'r', encoding='utf-8') as file:
               content = file.read()
           content = re.sub(r'href=\"/*', 'href=\"./', content)
+          content = re.sub(r'<meta name="description" content="A new Flutter project.">', '<meta name="description" content="Solução para o agronegócio">', content)
+          content = re.sub(r'<meta name="apple-mobile-web-app-title" content="otimizai_agronota_app">', '<meta name="apple-mobile-web-app-title" content="Otimizai">', content)
+          content = re.sub(r'<title>otimizai_agronota_app</title>', '<title>Otimizai</title>', content)
           with open(index_file_path, 'w', encoding='utf-8') as file:
               file.write(content)"
 
