@@ -37,7 +37,7 @@ jobs:
       - name: Build web app
         working-directory: otimizai_agronota_app/otimizai_agronota_app
         run: |
-            flutter --version
+            flutter config --enable-web
             flutter clean
             flutter pub get
             flutter build web --release
