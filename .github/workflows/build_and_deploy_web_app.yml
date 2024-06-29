@@ -33,6 +33,14 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
             flutter-version: '3.22.2'
+
+      - name: Check outdated packages
+        working-directory: otimizai_agronota_app/otimizai_agronota_app
+        run: flutter pub outdated
+
+      - name: Resolve dependencies
+        working-directory: otimizai_agronota_app/otimizai_agronota_app
+        run: flutter pub upgrade
         
       - name: Build web app
         working-directory: otimizai_agronota_app/otimizai_agronota_app
