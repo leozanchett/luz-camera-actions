@@ -34,13 +34,12 @@ jobs:
         with:
             flutter-version: '3.22.2'
         
-      - name: Install dependencies
-        working-directory: otimizai_agronota_app/otimizai_agronota_app
-        run: flutter pub get
-
       - name: Build web app
         working-directory: otimizai_agronota_app/otimizai_agronota_app
-        run: flutter build web
+        run: |
+            flutter clean
+            flutter pub get
+            flutter build web --release
         
       - name: Deploy web app
         uses: peaceiris/actions-gh-pages@v3
