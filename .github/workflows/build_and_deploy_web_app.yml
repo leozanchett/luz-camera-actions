@@ -13,7 +13,7 @@ jobs:
       - name: Checkout private repository
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.actor }}/agronota-app  # Certifique-se de que o nome do repositório está correto
+          repository: ${{ github.actor }}/agronota-app 
           token: ${{ secrets.GIT_HUB_TOKEN }}
           path: otimizai_agronota_app
           ref: main 
@@ -29,14 +29,13 @@ jobs:
         with:
             channel: 'stable'
             flutter-version: '3.22.2'
-            
 
       - name: Flutter build
         working-directory: otimizai_agronota_app/otimizai_agronota_app
         run: |
             flutter pub upgrade --major-versions
             flutter pub get
-            flutter build web 
+            flutter build web --dart-define=FIREBASE_API_KEY=${{ secrets.FIREBASE_API_KEY }}
         # Importante: O comando flutter build web --release não é mais necessário
         # e para que o build funcione no GitHub Actions, é necessário ter a pasta web no diretório raiz do projeto
         
@@ -45,8 +44,7 @@ jobs:
         with:
           github_token: ${{ secrets.LUZ_CAMERA_ACAO_TOKEN }}
           publish_dir: otimizai_agronota_app/otimizai_agronota_app/build/web
-          publish_branch: gh-pages
-          cname: agronota.com.br # Adicione o domínio personalizado
+          publish_branch: main
           commit_message: 'Deploy Flutter Web App 🚀'
 
 
