@@ -1,7 +1,7 @@
 import os
 import re
 
-index_file_path = '/otimizai_agronota_app/otimizai_agronota_app/build/web/index.html'
+index_file_path = '/build/web/index.html'
 
 print(os.system('ls -la'))
 print("+" * 20)

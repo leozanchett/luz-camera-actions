@@ -40,13 +40,33 @@ jobs:
         # e para que o build funcione no GitHub Actions, é necessário ter a pasta web no diretório raiz do projeto
 
       - name: Check current directory inside subdirectory
-        working-directory: otimizai_agronota_app/otimizai_agronota_app
+        
         run: |
             pwd
             ls -la
 
       - name: Use Python 3.x
-        uses: ./.github/actions/pyto
+        working-directory: otimizai_agronota_app/otimizai_agronota_app
+        run: |
+          python -c "import os
+          import re
+
+          index_file_path = '/build/web/index.html'
+
+          print(os.system('ls -la'))
+          print('+' * 20)
+
+          print(os.system('ls -la .github/'))
+
+          print(os.system('pwd'))
+
+          with open(index_file_path, 'r', encoding='utf-8') as file:
+              content = file.read()
+        
+          content = re.sub(r'href=\"/*', 'href=\"./', content)
+
+          with open(index_file_path, 'w', encoding='utf-8') as file:
+              file.write(content)"
 
       - name: Deploy web app
         uses: peaceiris/actions-gh-pages@v3
