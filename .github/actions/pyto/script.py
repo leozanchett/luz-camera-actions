@@ -1,7 +1,10 @@
 import os
 import re
 
-index_file_path = '/home/runner/work/luz-camera-actions/luz-camera-actions/otimizai_agronota_app/otimizai_agronota_app/build/web/index.html'
+index_file_path = '/build/web/index.html'
+
+# muda o diretório uma pasta acima
+os.chdir('..')
 
 print(os.system('ls -la'))
 
