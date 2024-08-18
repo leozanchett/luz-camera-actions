@@ -1,11 +1,8 @@
 name: Test Cron
 
 on:
-  push:
-    branches:
-      - cron
   schedule:
-    - cron: '*/5 * * * *'  # Cada 5 minutos para teste
+    - cron: '*/15 * * * *'  # Cada 5 minutos para teste
 
 jobs:
   test:
