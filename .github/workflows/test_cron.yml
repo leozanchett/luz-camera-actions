@@ -3,7 +3,7 @@ name: Test Cron
 on:
   push:
     branches:
-      - agro-stella-gc-run
+      - cron
   schedule:
     - cron: '*/5 * * * *'  # Cada 5 minutos para teste
 
